@@ -1,0 +1,29 @@
+.panel
+  .panel-heading = @project.name
+  p = @project.description
+  .btn-group.btn-group-justified
+    = link_to "Редактировать", edit_project_path(@project), class: %w(btn btn-info)
+    = link_to "Добавить спринт", new_project_sprint_path(@project), class: %w(btn btn-primary)
+    = link_to "Добавить таск", new_project_task_path(@project), class: %w(btn btn-primary)
+    = link_to "Удалить", project_path(@project), method: :delete, class: %w(btn btn-danger)
+  .list-group.list-group-flush
+    - if @project.sprints.present?
+      - @project.sprints.each do |sprint|
+        = link_to project_sprint_path(@project, sprint), class: "list-group-item" do
+          span.badge = sprint.tasks.size
+          h4.list-group-item-heading = sprint.name
+    - else
+      .list-group-item
+        h4 В данный момент у проекта нет спринтов
+table.table.table-bordered.table-hover
+  thead
+    tr
+      th Название
+      th Исполнитель
+      th Срочность
+  tbody
+    - @project.tasks.each do |task|
+      tr
+        td = task.name
+        td
+        td

@@ -1,0 +1,13 @@
+= form_for @project, html: { class: %w(form-horizontal) } do |f|
+  - if @project.errors.any?
+    - @project.errors.full_messages.each do |msg|
+      .alert.alert-error
+        a.close data-dismiss="alert" href="#" &times;
+        = msg
+  .control-group
+    = f.label :name, class: %w(control-label)
+    .controls = f.text_field :name
+  .control-group
+    = f.label :description, class: %w(control-label)
+    .controls = f.text_area :description, rows: 5, noresize: true
+  .form-actions = f.submit class: %w(btn btn-primary)

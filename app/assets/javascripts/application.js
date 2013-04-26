@@ -12,4 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
+//= require kalendae
 //= require_tree .
+$(function(){
+    $(".mykal").kalendae({format: "YYYY-MM-DD"});
+});
