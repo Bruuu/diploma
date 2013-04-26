@@ -1,0 +1,16 @@
+= form_for [@project, @sprint], html: { class: %i(form-horizontal) } do |f|
+  - if @sprint.errors.any?
+    - @sprint.errors.full_messages.each do |msg|
+      .alert.alert-error
+        a.close data-dismiss="alert" href="#" &times;
+        = msg
+  .control-group
+    = f.label :name, class: %i(control-label)
+    .controls = f.text_field :name
+  .control-group
+    = f.label :start_date, class: %i(control-label)
+    .controls = f.text_field :start_date, class: %i(mykal)
+  .control-group
+    = f.label :end_date, class: %i(control-label)
+    .controls = f.text_field :end_date, class: %i(mykal)
+  .form-actions = f.submit class: %i(btn btn-primary)

@@ -1,0 +1,9 @@
+.panel
+  .panel-heading Редактирование профиля
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f|
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    = f.input :current_password
+    .form-actions
+      = f.button :submit, class: %w(btn btn-primary)
