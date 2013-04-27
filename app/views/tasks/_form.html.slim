@@ -10,8 +10,8 @@
   = f.input :status
   = f.input :priority
   = f.input :assignee
-  = f.input :start_date, input_html: { class: %i(mykal) }
-  = f.input :due_date, input_html: { class: %i(mykal) }
+  = f.input :start_date, input_html: { class: %w(mykal) }
+  = f.input :due_date, input_html: { class: %w(mykal) }
   = f.input :estimated_time
   = f.input :done, collection: (0..100).step(10).map {|x| ["#{x}%", x]}, include_blank: false
   .form-actions
