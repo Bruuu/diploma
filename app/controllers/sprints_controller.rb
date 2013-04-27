@@ -1,8 +1,5 @@
 class SprintsController < ApplicationController
-  def index
-    @project = current_user.projects.find(params[:project_id])
-    @sprints = @project.sprints
-  end
+  before_filter :authenticate_user!
 
   def show
     @project = current_user.projects.find(params[:project_id])

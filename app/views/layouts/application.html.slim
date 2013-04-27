@@ -12,27 +12,12 @@ html
       ul.nav
         li = link_to "Проекты", projects_path, class: [:button]
       ul.nav.pull-right
+        - if user_signed_in?
+          li style="padding-bottom: 15px; padding-top: 15px;" = current_user.email
+          li = link_to "Редактировать", edit_user_registration_path
+          li = link_to "Выйти", destroy_user_session_path, method: :delete
+        - else
+          li = link_to "Войти", new_user_session_path
+          li = link_to "Зарегистрироваться", new_user_registration_path
     #wrap
-      .row
-        .col-span-8 = yield
-        .col-span-4
-          - if user_signed_in?
-            .panel.without-description
-              .panel-heading Личный кабинет
-              .list-group.list-group-flush
-                .list-group-item = current_user.email
-                = link_to "Редактировать", edit_user_registration_path, class: "list-group-item"
-                = link_to "Выйти", destroy_user_session_path, method: :delete, class: "list-group-item"
-          - else
-            = link_to "Войти", new_user_session_path, class: "list-group-item"
-            = link_to "Зарегистрироваться", new_user_registration_path, class: "list-group-item"
-          .panel.without-description
-            .panel-heading Меню
-            .list-group.list-group-flush
-              - if user_signed_in?
-                - if defined?(@project) && @project.persisted?
-                  = link_to "Редактировать проект", edit_project_path(@project), class: "list-group-item"
-                  a.list-group-item href="/" Участники проекта
-                  = link_to "Добавить спринт", new_project_sprint_path(@project), class: "list-group-item"
-                  = link_to "Добавить задачу", new_project_task_path(@project), class: "list-group-item"
-                = link_to "Добавить проект", new_project_path, class: "list-group-item"
+      .row = yield

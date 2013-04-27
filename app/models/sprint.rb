@@ -3,7 +3,7 @@ class Sprint
   include Mongoid::Timestamps
 
   belongs_to :project
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   field     :name, type: String
   validates :name, presence: true, uniqueness: { scope: :project_id, case_sensitive: false }

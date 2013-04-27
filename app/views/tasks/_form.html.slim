@@ -1,13 +1,18 @@
-= form_for [@project, @task] do |f|
+= simple_form_for([@project, @task], html: { class: 'form-horizontal' }) do |f|
   - if @task.errors.any?
     - @task.errors.full_messages.each do |msg|
       .alert.alert-error
         a.close data-dismiss="alert" href="#" &times;
         = msg
-  .control-group
-    = f.label :name, class: %w(control-label)
-    .controls = f.text_field :name
-  .control-group
-    = f.label :description, class: %w(control-label)
-    .controls = f.text_area :description, rows: 5, noresize: true
-  .form-actions = f.submit class: %w(btn btn-primary)
+  = f.input :name
+  = f.input :description
+  = f.input :tracker
+  = f.input :status
+  = f.input :priority
+  = f.input :assignee
+  = f.input :start_date, input_html: { class: %i(mykal) }
+  = f.input :due_date, input_html: { class: %i(mykal) }
+  = f.input :estimated_time
+  = f.input :done, collection: (0..100).step(10).map {|x| ["#{x}%", x]}, include_blank: false
+  .form-actions
+    = f.button :submit, class: %w(btn btn-primary)

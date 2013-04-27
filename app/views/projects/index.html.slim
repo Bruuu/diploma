@@ -1,14 +1,15 @@
-.panel
-  .panel-heading Список доступных вам проектов
-  .btn-group.btn-group-justified
-    = link_to "Добавить проект", new_project_path, class: %w(btn btn-primary)
-  .list-group.list-group-flush
-    - if @projects.present?
-      - @projects.each do |project|
-        = link_to project_path(project), class: "list-group-item" do
-          span.badge = project.sprints.size
-          h4.list-group-item-heading = project.name
-          p.list-group-item-text = project.description
-    - else
-      .list-group-item
-        h4 В данный момент у вас нет проектов
+.col-span-12 
+  .panel
+    .panel-heading Список доступных вам проектов
+    .btn-group.btn-group-justified
+      = link_to "Добавить проект", new_project_path, class: %w(btn btn-primary)
+    .list-group.list-group-flush
+      - if @projects.present?
+        - @projects.each do |project|
+          = link_to project_path(project), class: "list-group-item" do
+            span.badge = project.sprints.size
+            h4.list-group-item-heading = project.name
+            p.list-group-item-text = project.description
+      - else
+        .list-group-item
+          h4 В данный момент у вас нет проектов
