@@ -16,4 +16,5 @@ class User
   field :last_sign_in_ip,        :type => String
 
   has_many :projects
+  has_many :tasks
 end

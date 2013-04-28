@@ -1,0 +1,23 @@
+.col-span-12 
+  ul.breadcrumb
+    li = link_to @project.name, @project
+    li.active Участники
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th Имя
+        th Роль
+        th Действия
+    tbody
+      - @project.members.each do |member|
+        = simple_form_for [@project, member] do |f|
+          td = member.user.email
+          td = f.input :role, collection: Member::ROLES, label: false
+          td
+            = f.button :submit
+            = link_to "del", [@project, member], method: :delete
+      tr
+        = simple_form_for [@project, Member.new] do |f|
+          td = f.association :user, collection: (User.all.to_a - @project.users), label_method: :email, value_method: :id, label: false
+          td = f.input :role, collection: Member::ROLES, label: false
+          td = f.button :submit

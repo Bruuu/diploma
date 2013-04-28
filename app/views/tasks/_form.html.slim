@@ -6,10 +6,10 @@
         = msg
   = f.input :name
   = f.input :description
-  = f.input :tracker
-  = f.input :status
-  = f.input :priority
-  = f.input :assignee
+  = f.input :sprint, collection: @project.sprints, label_method: :name, value_method: :id
+  = f.input :tracker, collection: Task::TRACKERS, include_blank: false
+  = f.input :priority, collection: Task::PRIORITIES
+  = f.input :assignee, collection: @project.users, label_method: :email, value_method: :id
   = f.input :start_date, input_html: { class: %w(mykal) }
   = f.input :due_date, input_html: { class: %w(mykal) }
   = f.input :estimated_time

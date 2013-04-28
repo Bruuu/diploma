@@ -5,6 +5,11 @@ class Project
   belongs_to :user
   has_many :sprints, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :members, dependent: :destroy
+
+  def users
+    members.map(&:user)
+  end
 
   field     :name, type: String
   validates :name,

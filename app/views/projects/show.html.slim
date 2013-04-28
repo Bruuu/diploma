@@ -4,7 +4,7 @@
     p = @project.description
     .btn-group.btn-group-justified
       = link_to "Редактировать", edit_project_path(@project), class: %w(btn btn-info)
-      = link_to "Участники проекта", root_path, class: %w(btn btn-primary)
+      = link_to "Участники проекта", project_members_path(@project), class: %w(btn btn-primary)
       = link_to "Добавить спринт", new_project_sprint_path(@project), class: %w(btn btn-primary)
       = link_to "Добавить таск", new_project_task_path(@project), class: %w(btn btn-primary)
       = link_to "Удалить", project_path(@project), method: :delete, class: %w(btn btn-danger)
@@ -27,5 +27,5 @@
       - @project.tasks.each do |task|
         tr
           td = task.name
-          td
-          td
+          td = task.assignee.try(:email) || "&nbsp;".html_safe
+          td = task.priority

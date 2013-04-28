@@ -3,12 +3,13 @@ class Task
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  TRACKERS = ["Bug", "Feature", "Support"]
+  TRACKERS = ["Feature", "Bug", "Support"]
   STATUSES = ["Новый", "В работе", "Выполнено"]
   PRIORITIES = ["Низкий", "Нормальный", "Высокий", "Незамедлительный"]
 
   belongs_to :sprint
   belongs_to :project
+  belongs_to :assignee, class_name: "User"
 
   field     :name, type: String
   validates :name,
@@ -24,12 +25,12 @@ class Task
             presence: true,
             inclusion: { in: TRACKERS }
 
-  field     :status, type: String
+  field     :status, type: String, default: "Новый"
   validates :status,
             presence: true,
             inclusion: { in: STATUSES }
 
-  field     :priority, type: String
+  field     :priority, type: String, default: "Нормальный"
   validates :priority,
             presence: true,
             inclusion: { in: PRIORITIES }

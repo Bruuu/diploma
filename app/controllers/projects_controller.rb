@@ -20,6 +20,11 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(params[:project])
     if @project.save
+      member = Member.new
+      member.user = current_user
+      member.project = @project
+      member.role = "Руководитель"
+      member.save
       redirect_to @project
     else
       render action: "new"

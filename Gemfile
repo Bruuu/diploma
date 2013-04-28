@@ -11,9 +11,11 @@ group :assets do
   gem 'kalendae_assets'
 end
 
+gem 'pry-rails'
 gem 'simple_form'
 gem 'bson_ext'
 gem 'mongoid', '~> 3.0'
 gem 'devise'
 gem 'thin'
 gem 'slim-rails'
+gem 'pundit'
