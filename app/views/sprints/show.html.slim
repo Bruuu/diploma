@@ -6,8 +6,8 @@
     .panel-heading = @sprint.name
     .btn-group.btn-group-justified
       = link_to "Добавить таск", new_project_task_path(@project), class: %w(btn btn-primary)
-      = link_to "Редактировать", edit_project_sprint_path, class: %w(btn btn-primary)
-      = link_to "Удалить", project_sprint_path, method: :delete, class: %w(btn btn-primary)
+      = link_to "Редактировать", edit_project_sprint_path, class: %i(btn btn-primary)
+      = link_to "Удалить", project_sprint_path, method: :delete, class: %i(btn btn-primary)
     p
       strong
         = t("mongoid.attributes.sprint.start_date")
