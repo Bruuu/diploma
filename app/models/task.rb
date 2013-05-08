@@ -3,7 +3,7 @@ class Task
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  TRACKERS = ["Feature", "Bug", "Support"]
+  TRACKERS = ["Улучшение", "Ошибка", "Поддержка"]
   STATUSES = ["Новый", "В работе", "Выполнено"]
   PRIORITIES = ["Низкий", "Нормальный", "Высокий", "Незамедлительный"]
 

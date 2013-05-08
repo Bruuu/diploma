@@ -15,7 +15,8 @@
           td = f.input :role, collection: Member::ROLES, label: false
           td
             = f.button :submit
-            = link_to "del", [@project, member], method: :delete
+            = link_to "del", [@project, member], method: :delete, class: %w(btn btn-danger)
+
       tr
         = simple_form_for [@project, Member.new] do |f|
           td = f.association :user, collection: (User.all.to_a - @project.users), label_method: :email, value_method: :id, label: false

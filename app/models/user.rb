@@ -4,6 +4,8 @@ class User
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  field :first_name,             :type => String
+  field :second_name,            :type => String
   field :email,                  :type => String,  :default => ""
   field :encrypted_password,     :type => String,  :default => ""
   field :reset_password_token,   :type => String
@@ -14,6 +16,7 @@ class User
   field :last_sign_in_at,        :type => Time
   field :current_sign_in_ip,     :type => String
   field :last_sign_in_ip,        :type => String
+
 
   has_many :projects
   has_many :tasks

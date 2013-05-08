@@ -6,7 +6,7 @@
       = link_to "Редактировать", edit_project_path(@project), class: %w(btn btn-info)
       = link_to "Участники проекта", project_members_path(@project), class: %w(btn btn-primary)
       = link_to "Добавить спринт", new_project_sprint_path(@project), class: %w(btn btn-primary)
-      = link_to "Добавить таск", new_project_task_path(@project), class: %w(btn btn-primary)
+      = link_to "Добавить задачу", new_project_task_path(@project), class: %w(btn btn-primary)
       = link_to "Удалить", project_path(@project), method: :delete, class: %w(btn btn-danger)
     .list-group.list-group-flush
       - if @project.sprints.present?

@@ -51,6 +51,8 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         current_password: Текущий пароль
+        first_name: Имя
+        second_name: Фамилия
       project:
         name: Название
         description: Описание
@@ -58,3 +60,15 @@ ru:
         name: Название
         start_date: Дата начала
         end_date: Дата окончания
+      task:
+        name: Название
+        description: Описание
+        sprint: Спринт
+        tracker:  Направление
+        priority: Приоритет
+        assignee: Исполнители
+        start_date: Дата начала
+        due_date: Предполагаемая дата окончания
+        estimated_time: Затраченное время
+        done:  Выполнено
+
