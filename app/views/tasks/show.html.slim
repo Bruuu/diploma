@@ -1,0 +1,28 @@
+.col-span-12
+  .panel
+    #.panel-heading = tasks.name
+    .btn-group.btn-group-justified
+      = link_to "Редактировать", edit_project_sprint_path, class: %w(btn btn-primary)
+      = link_to "Удалить", project_sprint_path, method: :delete, class: %w(btn btn-primary)
+    p
+      strong
+        = t("mongoid.attributes.task.start_date")
+        ' :
+      = @task.start_date
+    p
+      strong
+        = t("mongoid.attributes.task.due_date")
+        ' :
+      = @task.due_date
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th Название
+        th Исполнитель
+        th Срочность
+    tbody
+      - @sprint.task.each do |task|
+        tr
+          td = task.name
+          td = task.assignee.try(:email) || "&nbsp;".html_safe
+          td = task.priority

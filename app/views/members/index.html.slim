@@ -11,7 +11,7 @@
     tbody
       - @project.members.each do |member|
         = simple_form_for [@project, member] do |f|
-          td = member.user.email
+          td = member.user.second_name
           td = f.input :role, collection: Member::ROLES, label: false
           td
             = f.button :submit
@@ -19,6 +19,6 @@
 
       tr
         = simple_form_for [@project, Member.new] do |f|
-          td = f.association :user, collection: (User.all.to_a - @project.users), label_method: :email, value_method: :id, label: false
+          td = f.association :user, collection: (User.all.to_a - @project.users), label_method: :second_name, value_method: :id, label: false
           td = f.input :role, collection: Member::ROLES, label: false
           td = f.button :submit
