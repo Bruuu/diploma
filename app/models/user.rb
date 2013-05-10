@@ -20,4 +20,7 @@ class User
 
   has_many :projects
   has_many :tasks
+  def full_name
+    [first_name, second_name].join(" ")
+  end
 end
