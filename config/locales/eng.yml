@@ -1,0 +1,73 @@
+eng:
+  helpers:
+    submit:
+      update:
+      create:
+      user:
+        create:
+  simple_form:
+    hints:
+      user:
+        current_password:
+  mongoid:
+    errors: &errors
+      format: ! '%{attribute} %{message}'
+      messages:
+        accepted:
+        blank:
+        confirmation:
+        empty:
+        equal_to:
+        even:
+        exclusion:
+        greater_than: greater_than %{count}
+        greater_than_or_equal_to:  greater than or equal to %{count}
+        inclusion:
+        invalid: имеет неверное значение
+        less_than: less than %{count}
+        less_than_or_equal_to: less than or equal to %{count}
+        not_a_number:
+        not_an_integer:
+        odd:
+        record_invalid: ! 'Errors: %{errors}'
+        taken:
+        too_long:
+          few: too_long (few %{count})
+          many: too_long many %{count})
+          one: too_long (one %{count})
+          other: too_long (other %{count})
+        too_short:
+          few: too_short (few %{count})
+          many: too_short (many %{count})
+          one: too_short (one %{count})
+          other: too_short (other %{count})
+        wrong_length:
+          few: wrong_length (few %{count})
+          many: wrong_length (many %{count})
+          one:  wrong_length (one %{count})
+          other: wrong_length (other %{count})
+    attributes:
+      user:
+        password:
+        password_confirmation: password confirmation
+        current_password: current password
+        first_name: first name
+        second_name: last name
+      project:
+        name:
+        description:
+      sprint:
+        name:
+        start_date: start date
+        end_date: end date
+      task:
+        name:
+        description:
+        sprint:
+        tracker:
+        priority:
+        assignee:
+        start_date:
+        due_date: due date
+        estimated_time: estimatedtime
+        done:
