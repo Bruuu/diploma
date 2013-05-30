@@ -1,4 +1,5 @@
-eng:
+en:
+  projects: Projects
   helpers:
     submit:
       update:

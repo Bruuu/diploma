@@ -10,7 +10,7 @@ html
     .navbar.navbar-static-top
       = link_to "Дипломная Работа", root_path, class: "navbar-brand"
       ul.nav
-        li = link_to "Проекты", projects_path, class: [:button]
+        li = link_to t('projects'), projects_path, class: [:button]
       ul.nav.pull-right
         - if user_signed_in?
           li style="padding-bottom: 15px; padding-top: 15px;" = current_user.email
